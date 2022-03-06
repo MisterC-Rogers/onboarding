@@ -1,14 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useEffect } from 'react'
 
 const Home: NextPage = () => {
-
-  useEffect(() => {
-    // TODO: send the configuration to the component
-  }, [])
-  
+  // TODO: make global state to hold utility functions and state variables
+  // TODO: send post with all the configurations
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>

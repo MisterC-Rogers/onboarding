@@ -17,7 +17,6 @@ const MultiButton = ({currentId, question, answer, setCurrentQuestionId, setResu
     setChoices([...choices, event.target.value])
   }
   const handleSubmit = () => {
-    console.log(choices)
     setResults({...results, [question]:choices})
     setCurrentQuestionId(nextId)
   }
