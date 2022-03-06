@@ -5,12 +5,19 @@ import Container from "../../components/Container";
 import Header from "../../components/Header";
 
 const fetcher = (url:string) => fetch(url).then((res) => res.json())
-
-export default function Start() {
+type FoodQuizProps = {
+    id: number
+}
+export default function Start({id}:FoodQuizProps) {
     const { data, error } = useSwr('/api/get', fetcher)
     const [currentQuestionId, setCurrentQuestionId] = useState(1)
     const [results, setResults] = useState({})
     
+    const finishQuiz = () => {
+        console.log(results)
+        // TODO: send put request to the server
+    }
+
     if (error) return <div>Failed to load users</div>
     if (!data) return <div>Loading...</div>
     
@@ -30,6 +37,7 @@ export default function Start() {
                         setCurrentQuestionId={setCurrentQuestionId}
                         setResults={setResults}
                         results={results}
+                        finishQuiz={finishQuiz}
                     />
                 ))}
             </main>
